@@ -1,0 +1,39 @@
+document.querySelector('.form').addEventListener('submit', e => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const delay = Number(form.elements.delay.value);
+  const state = form.elements.state.value;
+
+  createPromise(delay, state)
+    .then(ms => {
+      console.log(`✅ Fulfilled promise in ${ms}ms`);
+      iziToast.success({
+        title: 'Success',
+        message: `Fulfilled promise in ${ms}ms`,
+        position: 'topRight',
+      });
+    })
+    .catch(ms => {
+      console.log(`❌ Rejected promise in ${ms}ms`);
+      iziToast.error({
+        title: 'Error',
+        message: `Rejected promise in ${ms}ms`,
+        position: 'topRight',
+      });
+    });
+
+  form.reset();
+});
+
+function createPromise(delay, state) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (state === 'fulfilled') {
+        resolve(delay);
+      } else {
+        reject(delay);
+      }
+    }, delay);
+  });
+}
