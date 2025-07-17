@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/goit-js-hw-09/",
+    "build": "vite build --base=/goit-js-hw-10/",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist --repo https://github.com/Buievska/goit-js-hw-09.git"
+    "deploy": "gh-pages -d dist --repo https://github.com/Buievska/goit-js-hw-10.git"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
